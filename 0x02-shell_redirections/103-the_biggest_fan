@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "\tRequests\tIP\t\n" > memory.tvs && awk '{ print $1 }' .access_log.tmp | sort -n | uniq -c | sort -nr | head -20 > ".access_log.tmp.2" && sed 's/[[:space:]]\+/;/g' .access_log.tmp.2 >> memory.tsv && rm .access_log.tmp .access_log.tmp.2
